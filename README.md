@@ -2,6 +2,10 @@
 
 ## Table of Content
 
+### Basics
+
+- [Data Types](./DataTypes.md)
+- [CRUD](./CRUD.md)
 - [Query](./Query.md)
 - [Locking](./Locking.md)
 - [StorageEngine](./StorageEngine.md)
