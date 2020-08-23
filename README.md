@@ -7,6 +7,7 @@
 - [Data Types](./DataTypes.md)
 - [CRUD](./CRUD.md)
 - [Query](./Query.md)
+- [Filtering](./Filtering.md)
 - [Locking](./Locking.md)
 - [StorageEngine](./StorageEngine.md)
 - [Transactions](./Transactions.md)
