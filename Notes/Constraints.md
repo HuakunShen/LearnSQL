@@ -75,21 +75,3 @@ ALTER TABLE product
         ON DELETE CASCADE;
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
