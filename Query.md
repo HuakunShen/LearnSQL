@@ -125,14 +125,12 @@ ON e.dept_id = d.dept_id;
 -- AND
 SELECT <cols>
 FROM <table_name>
-WHERE <col> = <value> AND
-			<col2> = <value2>
+WHERE <col> = <value> AND <col2> = <value2>
 			
 -- OR
 SELECT <cols>
 FROM <table_name>
-WHERE <col> = <value> OR
-			<col2> = <value2>
+WHERE <col> = <value> OR <col2> = <value2>
 ```
 
 ## GROUP BY & HAVING
