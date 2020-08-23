@@ -1,6 +1,6 @@
 # Grouping and Aggregation
 
->  `GROUP BY` groups rows that have the same values into summary rows.
+> `GROUP BY` groups rows that have the same values into summary rows.
 
 ## HAVING
 
@@ -12,15 +12,15 @@ You cannot refer to aggregate function `count(*)` in the `where` clause, because
 
 ```mysql
 -- Error
-SELECT open_emp_id, COUNT(*) how_many     
-FROM account     
-WHERE COUNT(*) > 4     
+SELECT open_emp_id, COUNT(*) how_many
+FROM account
+WHERE COUNT(*) > 4
 GROUP BY open_emp_id;
 
 -- Solution
-SELECT open_emp_id, COUNT(*) how_many    
-FROM account    
-GROUP BY open_emp_id    
+SELECT open_emp_id, COUNT(*) how_many
+FROM account
+GROUP BY open_emp_id
 HAVING COUNT(*) > 4;
 ```
 
@@ -85,7 +85,7 @@ GROUP BY product_cd, open_branch_id
 WITH ROLLUP;
 ```
 
-![image-20200823181800797](GroupingAggregation.assets/image-20200823181800797.png)
+<img src="GroupingAggregation.assets/image-20200823181800797.png" alt="image-20200823181800797" style="width:50%;" />
 
 Seven additional rows in the result set, one for each of the six distinct products and one for the grand total (all products combined).
 
@@ -114,7 +114,7 @@ GROUP BY product_cd, open_branch_id
 WITH CUBE;
 ```
 
-<img src="GroupingAggregation.assets/image-20200823182517074.png" alt="image-20200823182517074" style="zoom:25%;" />
+<img src="GroupingAggregation.assets/image-20200823182517074.png" alt="image-20200823182517074" style="width:50%;" />
 
 Row 2-5 gives the total balance per branch regardless of **product_cd**.
 
