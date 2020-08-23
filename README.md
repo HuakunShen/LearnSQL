@@ -11,7 +11,7 @@
 - [Joins](./Notes/Joins.md)
 - [Sets](./Notes/Sets.md)
 - [Data Generation, Conversion](./Notes/DataGenerationConversion.md)
-- [Grouping and Aggregates]('./Notes/GroupingAggregation.md')
+- [Grouping and Aggregates](./Notes/GroupingAggregation.md)
 - [Subquery](./Notes/Subquery.md)
 - [Locking](./Notes/Locking.md)
 - [StorageEngine](./Notes/StorageEngine.md)
