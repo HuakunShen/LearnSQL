@@ -70,7 +70,7 @@ Some database designs break large tables into multiple pieces in order to improv
 
 <details>
 <summary>Example</summary>
-For example, if the **transaction** table became large, the designers may decide to break it into two tables: **transaction_current**, which holds the latest six months’ of data, and **transaction_historic**, which holds all data up to six months ago. If a customer wants to see all the transactions for a particular account, you would need to query both tables. By creating a view that queries both tables and combines the results together (Using **UNION**), however, you can make it look like all transaction data is stored in a single table.
+For example, if the <strong>transaction</strong> table became large, the designers may decide to break it into two tables: <strong>transaction_current</strong>, which holds the latest six months’ of data, and <strong>transaction_historic</strong>, which holds all data up to six months ago. If a customer wants to see all the transactions for a particular account, you would need to query both tables. By creating a view that queries both tables and combines the results together (Using <strong>UNION</strong>), however, you can make it look like all transaction data is stored in a single table.
 </details>
 Using a view in this case is a good idea because it allows the designers to change the structure of the underlying data without the need to force all database users to modify their queries.
 
@@ -114,17 +114,4 @@ WHERE id = ...;
 
 Oracle Database and SQL Server also support updatable views with many restrictions just like MySQL.
 
-With PL/SQL or Transact-SQL, you can use a feature called *instead-of trigger*, which allows you to essentially intercept `insert`, `update`, `delete` statements against a view, and write custom code to incorporate the changes. Without this type of feature, there are simply too many restrictions to make updating through views a feasible strategy for nontrivial applications.
-
-
-
-
-
-
-
-
-
-
-
-
-
+With PL/SQL or Transact-SQL, you can use a feature called _instead-of trigger_, which allows you to essentially intercept `insert`, `update`, `delete` statements against a view, and write custom code to incorporate the changes. Without this type of feature, there are simply too many restrictions to make updating through views a feasible strategy for nontrivial applications.

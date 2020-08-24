@@ -85,7 +85,7 @@ GROUP BY product_cd, open_branch_id
 WITH ROLLUP;
 ```
 
-<img src="GroupingAggregation.assets/image-20200823181800797.png" alt="image-20200823181800797" style="width:50%;" />
+<img src="GroupingAggregation.assets/image-20200823181800797.png" alt="image-20200823181800797" width="500" />
 
 Seven additional rows in the result set, one for each of the six distinct products and one for the grand total (all products combined).
 
@@ -114,7 +114,7 @@ GROUP BY product_cd, open_branch_id
 WITH CUBE;
 ```
 
-<img src="GroupingAggregation.assets/image-20200823182517074.png" alt="image-20200823182517074" style="width:50%;" />
+<img src="GroupingAggregation.assets/image-20200823182517074.png" alt="image-20200823182517074" width="500" />
 
 Row 2-5 gives the total balance per branch regardless of **product_cd**.
 

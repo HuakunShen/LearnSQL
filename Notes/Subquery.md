@@ -1,13 +1,13 @@
 # Subquery
 
-> A *subquery* is query contained within another SQL statement.
+> A _subquery_ is query contained within another SQL statement.
 >
 > A subquery is always enclosed within parentheses, and it is usually executed prior to the containing statement.
 
 ## Subquery Types
 
-- ***Noncorrelated Subqueries***: some subqueries are completely self-contained.
-- ***Correlated Subqueries***: some subqueries reference columns from the containing statement.
+- **_Noncorrelated Subqueries_**: some subqueries are completely self-contained.
+- **_Correlated Subqueries_**: some subqueries reference columns from the containing statement.
 
 ### Noncorrelated Subqueries
 
@@ -84,7 +84,7 @@ The subquery return 2 columns.
 
 ### Correlated Subqueries
 
-A correlated subquery, on the other hand, is dependent on its containing statement from which it references one or more columns. 
+A correlated subquery, on the other hand, is dependent on its containing statement from which it references one or more columns.
 
 Unlike a noncorrelated subquery, a correlated subquery is not executed once prior to execution of the containing statement; instead, the correlated subquery is executed once for each candidate row (rows that might be included in the final results).
 
@@ -105,7 +105,7 @@ FROM account a
 WHERE EXISTS(
     SELECT 1
     FROM transaction t
-    WHERE t.account_id = a.account_id 
+    WHERE t.account_id = a.account_id
       AND t.txn_date = '2008-09-22');
 ```
 
@@ -137,11 +137,9 @@ UNION ALL
 SELECT 'Heavy Hitters' name, 10000 low_limit, 9999999.99 high_limit;
 ```
 
-<img src="Subquery.assets/image-20200823190558743.png" alt="image-20200823190558743" style="zoom:50%;" />
+<img src="Subquery.assets/image-20200823190558743.png" alt="image-20200823190558743" width="500" />
 
 #### Task-Oriented Subqueries
-
-
 
 ### Subqueries in Filter Conditions
 
@@ -156,22 +154,3 @@ HAVING COUNT(*) = (SELECT MAX(emp_cnt.how_many)
 ```
 
 ### Subqueries As Expression Generators
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

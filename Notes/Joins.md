@@ -13,8 +13,8 @@ ON A.id = B.id
 ### USING
 
 ```mysql
-SELECT e.fname, e.lname, d.name     
-FROM employee e INNER JOIN department d     
+SELECT e.fname, e.lname, d.name
+FROM employee e INNER JOIN department d
 USING (dept_id);
 ```
 
@@ -25,7 +25,7 @@ SELECT A.id, B.title
 FROM A, B, C
 WHERE A.id = B.id
 	AND B.title = C.title;
-	
+
 SELECT A.id, B.title
 FROM A INNER JOIN B ON A.id = B.id
 			 INNER JOIN C ON B.title = C.title;
@@ -35,7 +35,7 @@ FROM A INNER JOIN B ON A.id = B.id
 
 **NO.**
 
-It is up to the database server to determine how best to execute your query. The server must pick one of the tables as a starting point (The chosen table is thereafter known as ***driving table***).
+It is up to the database server to determine how best to execute your query. The server must pick one of the tables as a starting point (The chosen table is thereafter known as **_driving table_**).
 
 If tables must be joined in a particular order, use
 
@@ -62,7 +62,7 @@ FROM employee e INNER JOIN employee e_mgr
 ON e.superior_emp_id = e_mgr.emp_id;
 ```
 
-![image-20200823170549477](Joins.assets/image-20200823170549477.png)
+<img src="Joins.assets/image-20200823170549477.png" alt="image-20200823170549477" width="500" />
 
 ## Outer Join
 
@@ -76,13 +76,13 @@ ON a.cust_id = b.cust_id;
 
 <details>
 <summary>Result</summary>
-![image-20200823170041027](Joins.assets/image-20200823170041027.png)
+<img src="Joins.assets/image-20200823170041027.png" alt="image-20200823170549477" width="500" />
 </details>
 If you want to outer-join tables A and B and you want all rows from A with additional columns from B whenever there is matching data, you can specify either `A left outer join B` or `B right outer join A`.
 
 ### Self Outer Joins
 
-Recall the Self Join example in **Inner Join**, if changed to outer join, 
+Recall the Self Join example in **Inner Join**, if changed to outer join,
 
 ```mysql
 SELECT e.fname, e.lname, e_mgr.fname mgr_fname, e_mgr.lname mgr_lname
@@ -122,8 +122,3 @@ Database server would inspect table definitions and add the join conditions.
 If the columns don't have the same name across the tables, the server would use cross-join without join condition instead.
 
 **Avoid Natual Join and use Inner Joins with explicit join conditions.**
-
-
-
-
-
