@@ -27,6 +27,8 @@
 
 [Working With Pandas](./Notes/pandas.ipynb)
 
+[Working With SQLAlchemy](./Notes/sqlalchemy.ipynb)
+
 ## SQLAlchemy (ORM)
 
 [SQLAlchemy](https://www.sqlalchemy.org/)
