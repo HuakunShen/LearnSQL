@@ -25,6 +25,8 @@
 
 [Common Usage](./Notes/common-usage.md)
 
+[Working With Pandas](./Notes/pandas.ipynb)
+
 ## SQLAlchemy (ORM)
 
 [SQLAlchemy](https://www.sqlalchemy.org/)
