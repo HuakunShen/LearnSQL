@@ -46,7 +46,7 @@ The server may apply a lock at one of 3 different levels, or **granularities**.
 
 | Database             | Granularity                                                  |
 | -------------------- | ------------------------------------------------------------ |
-| Microsoft SQL Server | table, page, row locking. *escalate* locks from row to page, and page to table un der certain circumstances. |
+| Microsoft SQL Server | table, page, row locking. *escalate* locks from row to page, and page to table under certain circumstances. |
 | Oracle Database      | only row locking, (never *escalate* locks)                   |
 | MySQL                | table, page, row locking (depending on choice of storage engine) |
 
