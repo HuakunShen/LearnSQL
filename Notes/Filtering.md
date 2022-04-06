@@ -3,7 +3,7 @@
 ## Operators
 
 - Comparison Operators:
-  - =, !=, <>, <, >, LIKE, IN, BETWEEN
+  - =, !=, `<>`, <, >, LIKE, IN, BETWEEN
 - Arithmetic Operators:
   - +, -, \*, /
 
