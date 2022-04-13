@@ -15,9 +15,9 @@ Server needs to inspect every row of a table for a query like `SELECT` (time con
 ### Example
 
 ```mysql
-	SELECT dept_id, name
-	FROM department
-	WHERE name LIKE 'A%';
+SELECT dept_id, name
+FROM department
+WHERE name LIKE 'A%';
 ```
 
 When the table contains millions of rows, the server connot answer a query within a reasonable amount of time. This is where *index* comes in.
