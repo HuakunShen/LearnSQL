@@ -15,7 +15,7 @@ If you want to use foreign key constraints with the MySQL server, you must use t
 
 ### Add Constraints Along With Table Creation
 
-```mysql
+```sql
 CREATE TABLE product
 (
     product_cd      VARCHAR(10) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE product
 
 ### Add Constraints After Table Creation
 
-```mysql
+```sql
 ALTER TABLE product
     ADD CONSTRAINT pk_product PRIMARY KEY (product_cd);
 
@@ -40,7 +40,7 @@ ALTER TABLE product
 
 ### Drop Constraints
 
-```mysql
+```sql
 ALTER TABLE product DROP PRIMARY KEY;
 ALTER TABLE product DROP FOREIGN KEY fk_product_type_cd;
 ```
@@ -63,7 +63,7 @@ Although, neither Oracle Database nor SQL Server generates an index for a foreig
 
 `ON DELETE CASCADE` : A cascading delete removes rows from the child table when a row is deleted from the parent table according to the parent table's primary key and child table's foreign key.
 
-```mysql
+```sql
 -- drop original foreign key constraint
 ALTER TABLE product
 DROP FOREIGN KEY fk_product_type_cd;

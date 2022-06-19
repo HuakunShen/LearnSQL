@@ -15,7 +15,7 @@ A transaction can be used to protect against this kind of error. The transaction
 
 ## Psuedo Code
 
-```mysql
+```sql
 START TRANSACTION;
 /* withdraw money from first account, making sure balance is sufficient */ UPDATE account SET avail_balance = avail_balance - 500 WHERE account_id = 9988   AND avail_balance > 500;
 IF <exactly one row was updated by the previous statement> THEN   
@@ -117,7 +117,7 @@ All *savepoints* must be given a name.
 
 For **MySQL**
 
-```mysql
+```sql
 SAVEPOINT my_savepoint;							-- set a savepoint
 ROLLBACK TO SAVEPOINT my_savepoint	-- rollback to a particular savepoint
 ```
@@ -131,7 +131,7 @@ rollback transaction TO SAVEPOINT my_savepoint	-- rollback to a particular savep
 
 ### Example
 
-```mysql
+```sql
 START TRANSACTION;
 UPDATE product SET date_retired = CURRENT_TIMESTAMP() 
 WHERE product_cd = 'XYZ'; 

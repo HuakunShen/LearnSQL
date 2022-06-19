@@ -30,7 +30,7 @@
 - `UNION ALL` doesn't remove duplicates.
 - `UNION` exclude duplicate rows.
 
-```mysql
+```sql
 SELECT id
 FROM employee
 WHERE ...
@@ -45,7 +45,7 @@ WHERE ...
 - `INTERSECT ALL` operator does not remove duplicates
 - `INTERSECT` operator removes duplicate rows
 
-```mysql
+```sql
 SELECT id
 FROM employee
 WHERE ...
@@ -62,7 +62,7 @@ WHERE ...
 - `except` removes all occurrences of duplicate date from set A
 - `except all` only removes one occurrence of duplicate data from set A for every occurrence in set B.
 
-```mysql
+```sql
 SELECT id
 FROM employee
 WHERE ...

@@ -4,7 +4,7 @@
 
 Join tables on conditions.
 
-```mysql
+```sql
 SELECT ...
 FROM A INNER JOIN B
 ON A.id = B.id
@@ -12,7 +12,7 @@ ON A.id = B.id
 
 ### USING
 
-```mysql
+```sql
 SELECT e.fname, e.lname, d.name
 FROM employee e INNER JOIN department d
 USING (dept_id);
@@ -20,7 +20,7 @@ USING (dept_id);
 
 ### Use WHERE to JOIN
 
-```mysql
+```sql
 SELECT A.id, B.title
 FROM A, B, C
 WHERE A.id = B.id
@@ -43,7 +43,7 @@ If tables must be joined in a particular order, use
 - `FORCE ORDER` in **SQL Server**
 - `ORDERED` or `LEADING` in **Oracle Database**
 
-```mysql
+```sql
 SELECT STRAIGHT_JOIN <columns...>
 FROM A INNER JOIN B ON ...
 			 INNER JOIN C ON ...
@@ -56,7 +56,7 @@ It doesn't matter if the join conditions are placed in `WHERE` clause or `JOIN O
 
 Consider this example, self joining `employee` table to match each employee with their supervisor.
 
-```mysql
+```sql
 SELECT e.fname, e.lname, e_mgr.fname mgr_fname, e_mgr.lname mgr_lname
 FROM employee e INNER JOIN employee e_mgr
 ON e.superior_emp_id = e_mgr.emp_id;
@@ -68,7 +68,7 @@ ON e.superior_emp_id = e_mgr.emp_id;
 
 An outer join includes all of the rows from one table and includes data from the second table only if matching rows are found.
 
-```mysql
+```sql
 SELECT a.account_id, a.cust_id, b.name
 FROM account a LEFT OUTER JOIN business b
 ON a.cust_id = b.cust_id;
@@ -84,7 +84,7 @@ If you want to outer-join tables A and B and you want all rows from A with addit
 
 Recall the Self Join example in **Inner Join**, if changed to outer join,
 
-```mysql
+```sql
 SELECT e.fname, e.lname, e_mgr.fname mgr_fname, e_mgr.lname mgr_lname
 FROM employee e LEFT OUTER JOIN employee e_mgr
 ON e.superior_emp_id = e_mgr.emp_id;
@@ -100,7 +100,7 @@ If self right outer join is used, all supervisors are listed, including those on
 
 > Joining multiple tables without specifying any join conditions.
 
-```mysql
+```sql
 SELECT pt.name, p.product_cd, p.name
 FROM product p CROSS JOIN product_type pt;
 ```
@@ -113,7 +113,7 @@ Cross products/Cartesian Products.
 
 > Let database server determine what the join conditions need to be.
 
-```mysql
+```sql
 SELECT a.account_id, a.cust_id, c.cust_type_cd, c.fed_id     FROM account a NATURAL JOIN customer c;
 ```
 

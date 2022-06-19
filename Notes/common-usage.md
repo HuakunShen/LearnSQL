@@ -2,7 +2,7 @@
 
 [Jupyter Notebook With Output](./common-usage.ipynb)
 
-```mysql
+```sql
 -- show databases
 SHOW DATABASES;
 -- show users and show privileges

@@ -36,14 +36,14 @@
 - **Built-in function calls**, such as `ROUND(transaction.amount, 2)`
 - **User-defined function calls**
 
-```mysql
+```sql
 SELECT emp_id, 'ACTIVE', emp_id * 3.14, UPPER(lname)
 FROM employee
 ```
 
 If you only need to execute a built-in function or evaluate a simple expression, you can skip the from clause entirely.
 
-```mysql
+```sql
 SELECT VERSION(), USER(), DATABASE();
 ```
 
@@ -51,7 +51,7 @@ SELECT VERSION(), USER(), DATABASE();
 
 > One can add *column alias* after each element of `select` clause. The original name may be complicated (like an expression) or ambiguous.
 
-```mysql
+```sql
 SELECT emp_id,
 	'ACTIVE' status,
 	emp_id * 3.14 empid_x_pi,
@@ -63,7 +63,7 @@ FROM employee
 
 For better readability, use the `AS` keyword.
 
-```mysql
+```sql
 SELECT emp_id,
 	'ACTIVE' AS status,
 	emp_id * 3.14 AS empid_x_pi,
@@ -73,7 +73,7 @@ FROM employee
 
 ## Removing Duplicates (DISTINCT)
 
-```mysql
+```sql
 SELECT DISTINCT cusd_id
 FROM account;
 ```
@@ -92,7 +92,7 @@ FROM account;
 
 ### Subquery-generated tables
 
-```mysql
+```sql
 SELECT e.fname, e.lname
 FROM (SELECT fname, lname, title, start_date
 			FROM employee) AS e;
@@ -100,7 +100,7 @@ FROM (SELECT fname, lname, title, start_date
 
 ### Views
 
-```mysql
+```sql
 CREATE VIEW employee_vw AS
 SELECT emp_id, fname, lnamem, YEAR(start_date) AS start_year
 FROM employee;
@@ -111,7 +111,7 @@ FROM employee_vw;
 
 ### Table Links & Aliases
 
-```mysql
+```sql
 SELECT e.fname, e.lname, d.name AS dept_name
 FROM employee AS e INNER JOIN department AS d
 ON e.dept_id = d.dept_id;
@@ -121,7 +121,7 @@ ON e.dept_id = d.dept_id;
 
 > The where clause is the mechanism for filtering out unwanted rows from your result set.
 
-```mysql
+```sql
 -- AND
 SELECT <cols>
 FROM <table_name>
@@ -139,7 +139,7 @@ WHERE <col> = <value> OR <col2> = <value2>
 
 When using `Group By`, `having` can be used to filter group data in the same way `where` caluse filters data.
 
-```mysql
+```sql
 SELECT d.name, count(e.emp_id) num_employees     
 FROM department d INNER JOIN employee e     
 ON d.dept_id = e.dept_id     
@@ -151,7 +151,7 @@ HAVING count(e.emp_id) > 2;
 
 > The `order by` clause is the mechanism for sorting your result set using either raw column data or expressions based on column data.
 
-```mysql
+```sql
 SELECT open_emp_id, product_cd
 FROM account
 ORDER BY open_emp_id, product_cd;
@@ -163,7 +163,7 @@ When sorting, you have the option of specifying ascending or descending order vi
 
 The default is ascending, so you will need to add the desc keyword, only if you want to use a descending sort.
 
-```mysql
+```sql
 SELECT account_id, product_cd, open_date, avail_balance
 FROM account
 ORDER BY avail_balance DESC;
@@ -173,7 +173,7 @@ ORDER BY avail_balance DESC;
 
 This query uses the built-in function `right()` to extract the last three characters of the **fed_id** column and then sorts the rows based on this value.
 
-```mysql
+```sql
 SELECT cust_id, cust_type_cd, city, state, fed_id
 FROM customer
 ORDER BY RIGHT(fed_id, 3);
@@ -185,7 +185,7 @@ Reference the columns by their position in the `select` clause rather than by na
 
 Sort by the 2nd and 5th columns.
 
-```mysql
+```sql
 SELECT emp_id, title, start_date, fname, lname
 FROM employee
 ORDER BY 2, 5;

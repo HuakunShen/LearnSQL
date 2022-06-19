@@ -15,7 +15,7 @@
 
 ##### The in and not in operators
 
-```mysql
+```sql
 SELECT ...
 FROM ...
 WHERE val IN (1, 2);
@@ -26,7 +26,7 @@ FROM ...
 WHERE val = 1 OR val = 2;
 ```
 
-```mysql
+```sql
 SELECT emp_id, fname, lname, title
 FROM employee
 WHERE emp_id IN (SELECT superior_emp_id
@@ -37,7 +37,7 @@ WHERE emp_id IN (SELECT superior_emp_id
 
 The `all` operator allows you to make comparisons between a single value and every value in a set.
 
-```mysql
+```sql
 SELECT emp_id, fname, lname, title
 FROM employee
 WHERE emp_id NOT IN (SELECT superior_emp_id
@@ -53,7 +53,7 @@ WHERE emp_id <> ALL (SELECT superior_emp_id
 
 ##### any operator
 
-```mysql
+```sql
 SELECT account_id, cust_id, product_cd, avail_balance
 FROM account
 WHERE avail_balance > ANY (SELECT a.avail_balance
@@ -68,7 +68,7 @@ WHERE avail_balance > ANY (SELECT a.avail_balance
 
 #### Multicolumn Subqueries
 
-```mysql
+```sql
 SELECT account_id, product_cd, cust_id
 FROM account
 WHERE (open_branch_id, open_emp_id) IN
@@ -88,7 +88,7 @@ A correlated subquery, on the other hand, is dependent on its containing stateme
 
 Unlike a noncorrelated subquery, a correlated subquery is not executed once prior to execution of the containing statement; instead, the correlated subquery is executed once for each candidate row (rows that might be included in the final results).
 
-```mysql
+```sql
 SELECT c.cust_id, c.cust_type_cd, c.city
 FROM customer c
 WHERE (SELECT SUM(a.avail_balance)
@@ -99,7 +99,7 @@ WHERE (SELECT SUM(a.avail_balance)
 
 #### The exists Operator
 
-```mysql
+```sql
 SELECT a.account_id, a.product_cd, a.cust_id, a.avail_balance
 FROM account a
 WHERE EXISTS(
@@ -115,7 +115,7 @@ Using the exists operator, your subquery can return zero, one, or many rows, and
 
 ### Subqueries As Data Sources
 
-```mysql
+```sql
 SELECT d.dept_id, d.name, e_cnt.how_many num_employees
 FROM department d
          INNER JOIN
@@ -129,7 +129,7 @@ FROM department d
 
 You can use subqueries to generate data that doesn’t exist in any form within your database and cannot be generated from existing data.
 
-```mysql
+```sql
 SELECT 'Small Fry' name, 0 low_limit, 4999.99 high_limit
 UNION ALL
 SELECT 'Average Joes' name, 5000 low_limit, 9999.99 high_limit
@@ -143,7 +143,7 @@ SELECT 'Heavy Hitters' name, 10000 low_limit, 9999999.99 high_limit;
 
 ### Subqueries in Filter Conditions
 
-```mysql
+```sql
 SELECT open_emp_id, COUNT(*) how_many
 FROM account
 GROUP BY open_emp_id

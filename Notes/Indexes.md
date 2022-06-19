@@ -14,7 +14,7 @@ Server needs to inspect every row of a table for a query like `SELECT` (time con
 
 ### Example
 
-```mysql
+```sql
 SELECT dept_id, name
 FROM department
 WHERE name LIKE 'A%';
@@ -28,7 +28,7 @@ When the table contains millions of rows, the server connot answer a query withi
 
 **MySQL** treats indexes as optional components of a table, so it uses `alter table` command for index addition or removal.
 
-```mysql
+```sql
 ALTER TABLE department
 ADD INDEX dept_name_idx (name);
 ```
@@ -54,7 +54,7 @@ If there is more than one index, the optimizer must decide which index will be t
 
 ### MySQL
 
-```mysql
+```sql
 SHOW INDEX FROM department \G
 ```
 
@@ -66,7 +66,7 @@ When a table is created with primary key constraint, **MySQL** server automatica
 
 Supports `drop index` command too.
 
-```mysql
+```sql
 ALTER TABLE department
 DROP INDEX dept_name_idx;
 ```
@@ -95,7 +95,7 @@ A table can have multiple unique indexes.
 
 ### MySQL
 
-```mysql
+```sql
 ALTER TABLE department
 ADD UNIQUE dept_name_idx (name);
 ```
@@ -109,7 +109,7 @@ ON department (name);
 
 ## Multicolumn Indexes
 
-```mysql
+```sql
 ALTER TABLE employee
 ADD INDEX emp_names_idx (lname, fname);
 ```
@@ -172,7 +172,7 @@ For example, never use Bitmap Index on primary keys, since they have the highest
 
 **Oracle command for generating bitmap indexes:**
 
-```mysql
+```sql
 CREATE BITMAP INDEX acc_prod_idx ON account (prodict_cd);
 ```
 
@@ -186,7 +186,7 @@ To handle this situation, **MySQL**, **SQL Server**, and **Oracle Database** inc
 
 ### MySQL
 
-```mysql
+```sql
 EXPLAIN SELECT ...
 FROM ...
 WHERE ...

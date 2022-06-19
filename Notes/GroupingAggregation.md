@@ -10,7 +10,7 @@ When grouping data, you may need to filter out undesired data from your result s
 
 You cannot refer to aggregate function `count(*)` in the `where` clause, because the groups have not yet been generated at the time the where clause is evaluated. Instead, you must put your group filter conditions in the having clause.
 
-```mysql
+```sql
 -- Error
 SELECT open_emp_id, COUNT(*) how_many
 FROM account
@@ -34,7 +34,7 @@ HAVING COUNT(*) > 4;
 | `Sum()`            | Returns the sum of the values across a set |
 | `Count()`          | Returns the number of values in a set      |
 
-```mysql
+```sql
 SELECT MAX(avail_balance) max_balance,
        MIN(avail_balance) min_balance,
        AVG(avail_balance) avg_balance,
@@ -46,14 +46,14 @@ WHERE product_cd = 'CHK';
 
 ## Counting Distinct Values
 
-```mysql
+```sql
 SELECT COUNT(DISTINCT id)
 FROM account;
 ```
 
 ## Using Expressions
 
-```mysql
+```sql
 SELECT MAX(pending_balance - avail_balance) max_uncleared
 FROM account;
 ```
@@ -66,7 +66,7 @@ Even with the addition of the null value to the table, the `sum()`, `max()`, and
 
 Group by the Year of **start_date**:
 
-```mysql
+```sql
 SELECT EXTRACT(YEAR FROM start_date) year, COUNT(*) how_many
 FROM employee
 GROUP BY EXTRACT(YEAR FROM start_date);
@@ -76,7 +76,7 @@ GROUP BY EXTRACT(YEAR FROM start_date);
 
 Let’s say, however, that along with the total balances for each product/branch combination, you also want total balances for each distinct product.
 
-```mysql
+```sql
 SELECT product_cd,
        open_branch_id,
        SUM(avail_balance) tot_balance
@@ -91,7 +91,7 @@ Seven additional rows in the result set, one for each of the six distinct produc
 
 ### Oracle Database
 
-```mysql
+```sql
 GROUP BY ROLLUP(product_cd, open_branch_id)
 ```
 
@@ -99,7 +99,7 @@ Advantage of this syntax: allows you to perform rollups on a subset of columns i
 
 To perform rollups on only b and c:
 
-```mysql
+```sql
 GROUP BY a, ROLLUP(b, c)
 ```
 
@@ -107,7 +107,7 @@ GROUP BY a, ROLLUP(b, c)
 
 If, along with totals by product, you also want to calculate totals per branch, then you can use the `with cube` option, which generates summary rows for all possible combinations of the grouping columns.
 
-```mysql
+```sql
 SELECT product_cd, open_branch_id, SUM(avail_balance) tot_balance
 FROM account
 GROUP BY product_cd, open_branch_id
@@ -120,6 +120,6 @@ Row 2-5 gives the total balance per branch regardless of **product_cd**.
 
 #### Oracle Database
 
-```mysql
+```sql
 GROUP BY CUBE(product_cd, open_branch_id)
 ```

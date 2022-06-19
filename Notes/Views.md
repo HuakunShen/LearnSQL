@@ -2,7 +2,7 @@
 
 > Views do not involve data storage. A view is a **select** statement with a name, the query is stored for others to use.
 
-```mysql
+```sql
 CREATE VIEW customer_vw (cust_id, fed_id, cust_type_cd, address, city, state, zipcode) AS
 SELECT cust_id,
        concat('' ends in '', substr(fed_id, 8, 4)) fed_id,
@@ -16,7 +16,7 @@ FROM customer;
 
 Use `describe` to view columns info in a view.
 
-```mysql
+```sql
 describe customer_vw;
 ```
 
@@ -39,7 +39,7 @@ Views give more flexibility. Views can be used as **API** or **Black Box**. The 
 
 For Example, a view **total_balance_view** can be used for aggregating (summing) the balance of accounts. If later, a new table (**total_balance**) is created for performance improvement, the view's logic can be modified, without changing the way of querying **total_balance_view**.
 
-```mysql
+```sql
 -- original view
 CREATE total_balance_view
 (cust_id, total_deposits, total_debt)
@@ -87,7 +87,7 @@ Using a view in this case is a good idea because it allows the designers to chan
 
 Cannot modify more than one base table through a join view. If a view joins 2 tables, the data of each table can be modified separately, but you cannot update multiple columns belonging to more than 1 table in the same query.
 
-```mysql
+```sql
 CREATE VIEW join_view
 (...)
 AS

@@ -6,7 +6,7 @@ Read [Data Types](./DataTypes.md)
 
 ## Create Table
 
-```mysql
+```sql
 CREATE TABLE person
 (
     person_id   SMALLINT UNSIGNED,
@@ -27,7 +27,7 @@ Primary Key Constraint prevent user from inserting duplicate data regarding spec
 
 ### Create Another With Foreign Key
 
-```mysql
+```sql
 CREATE TABLE favorite_food     
   (person_id SMALLINT UNSIGNED,     
    food VARCHAR(20),     
@@ -43,7 +43,7 @@ When a favorite food data is inserted but `person_id` DNE in person table, the f
 
 Use `describe` or `desc` to check the table definition.
 
-```mysql
+```sql
 DESC person;
 ```
 
@@ -53,7 +53,7 @@ DESC person;
 </details>
 ## Inserting Data
 
-```mysql
+```sql
 INSERT INTO person     
   (person_id, fname, lname, gender, birth_date,     
    street, city, state, country, postal_code)     
@@ -65,7 +65,7 @@ INSERT INTO person
 
 ### Update Data
 
-```mysql
+```sql
 UPDATE person
 SET street      = '1225 Tremont St.',
     city        = 'Boston',
@@ -77,7 +77,7 @@ WHERE person_id = 1;
 
 ### Update Table
 
-```mysql
+```sql
 ALTER TABLE person
 ADD email varchar(255);
 
@@ -95,14 +95,14 @@ MODIFY COLUMN gender ENUM ('M', 'F', 'B'); -- MySQL/Oracle
 
 ### Remove Data
 
-```mysql
+```sql
 DELETE FROM person
 WHERE person_id = 2;
 ```
 
 ### Remove Table
 
-```mysql
+```sql
 DROP TABLE favorite_food;
 DROP TABLE person;
 ```

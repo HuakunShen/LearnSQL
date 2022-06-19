@@ -2,7 +2,7 @@
 
 ## Character Data
 
-```mysql
+```sql
 char(20)
 varchar(20)
 ```
@@ -15,19 +15,19 @@ For Oracle Database, use `varchar2` type when defining variable-length character
 
 MySQL can store data using various character sets, both single- and multibyte. To view the supported character sets in your server, you can use the show command.
 
-```mysql
+```sql
 SHOW CHARACTER SET;
 ```
 
 To choose a character set when defining a column:
 
-```mysql
+```sql
 varchar(20) character set utf8
 ```
 
 With **MySQL**, you may set default character set for your entire database:
 
-```mysql
+```sql
 create database db_name character set utf8;
 ```
 
@@ -113,7 +113,7 @@ If you wanted to insert the date March 23, 2005 into a date column using the def
 
 The following would fail, since 'DEC-21-1980' violates default date format.
 
-```mysql
+```sql
 UPDATE person
 SET birth_date = 'DEC-21-1980'
 WHERE person_id = 1;
@@ -121,7 +121,7 @@ WHERE person_id = 1;
 
 To convert string to date:
 
-```mysql
+```sql
 UPDATE person
 SET birth_date = str_to_date('DEC-21-1980', '%b-%d-%Y')
 WHERE person_id = 1;
@@ -159,7 +159,7 @@ WHERE person_id = 1;
 - An expression can be **null**, but it can never equal **null**
 - Two nulls are never equal to each other
 
-```mysql
+```sql
 SELECT emp_id, fname, lname, superior_emp_id
 FROM employee
 WHERE superior_emp_id IS NULL

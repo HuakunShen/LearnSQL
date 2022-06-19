@@ -25,18 +25,18 @@ For any tables that might take part in transactions, you should choose the **Inn
 
 Show all available engines:
 
-```mysql
+```sql
 SHOW ENGINES;
 ```
 
 To see which engine is used for a table,
 
-```mysql
+```sql
 SHOW TABLE STATUS LIKE 'transaction';
 ```
 
 ### Set Storage Engine for A Table
 
-```mysql
+```sql
 ALTER TABLE transaction ENGINE = INNODB;
 ```

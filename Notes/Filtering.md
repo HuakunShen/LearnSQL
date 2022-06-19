@@ -11,7 +11,7 @@
 
 ### Equality Conditions
 
-```mysql
+```sql
 -- Equality
 SELECT fname, lname
 FROM person
@@ -28,7 +28,7 @@ WHERE status = 'CLOSED' AND YEAR(close_date) = 2002;
 
 ### Range Conditions
 
-```mysql
+```sql
 SELECT emp_id, fname, lname, start_date
 FROM employee
 WHERE start_date < '2007-01-01' 
@@ -37,7 +37,7 @@ WHERE start_date < '2007-01-01'
 
 #### Between Operator
 
-```mysql
+```sql
 -- Equivalently
 SELECT emp_id, fname, lname, start_date
 FROM employee
@@ -50,7 +50,7 @@ WHERE avail_balance BETWEEN 3000 AND 5000;
 
 #### String Ranges
 
-```mysql
+```sql
 SELECT fname, lname
 FROM person
 WHERE phone BETWEEN '500-000-0000' AND '999-999-9999';
@@ -58,7 +58,7 @@ WHERE phone BETWEEN '500-000-0000' AND '999-999-9999';
 
 ### Membership Conditions
 
-```mysql
+```sql
 SELECT account_id, product_cd, cust_id, avail_balance     
 FROM account
 WHERE product_cd = 'CHK' OR product_cd = 'SAV'
@@ -75,7 +75,7 @@ WHERE product_cd NOT IN ('CHK','SAV','CD','MM');
 
 #### Using Subqueries
 
-```mysql
+```sql
 -- Equivalently
 SELECT account_id, product_cd, cust_id, avail_balance
 FROM account
@@ -85,7 +85,7 @@ WHERE product_cd IN (SELECT product_cd FROM product
 
 ### Matching Conditions
 
-```mysql
+```sql
 -- All employee whose last name begins with 'T'
 SELECT emp_id, fname, lname
 FROM employee
@@ -109,7 +109,7 @@ WHERE LEFT(lname, 1) = 'T';
 | _ _ t _               | Four-character strings with a *'t'* in the third position |
 | _ _ _ - _ _ - _ _ _ _ | 11-char strings with dashes in the 4th and 7th positions  |
 
-```mysql
+```sql
 SELECT lname
 FROM employee
 WHERE lname LIKE '_a%e%'
@@ -118,7 +118,7 @@ WHERE lname LIKE '_a%e%'
 
 ### Using Regular Expressions
 
-```mysql
+```sql
 SELECT emp_id, fname, lname
 FROM employee
 WHERE lname REGEXP '^[FG]';
